@@ -7,7 +7,7 @@ module.exports = solve2Sat
 
 function clauseToVariable(x, n) {
   if(x < 0) {
-    return (1 - x) + n
+    return (-1 - x) + n
   } else {
     return x - 1
   }
@@ -48,6 +48,7 @@ function solve2Sat(numVariables, clauses) {
     edges.push([na, b])
     adj[na].push(b)
     var nb = negate(b,numVariables)
+    console.log(c,a,b,na,nb)
     edges.push([nb, a])
     adj[nb].push(a)
   }

@@ -5,6 +5,13 @@
 ## Example
 
 ```javascript
+var twoSat = require("2-sat")
+
+//Solve problem:
+//
+//    (x1 | !x2) & (x3 | x1) & (x3 | x2)
+//
+console.log(twoSat(3, [[1, -2], [3, 1], [3,2]]))
 ```
 
 ## API
@@ -13,7 +20,7 @@
 Finds a satisfying assignment for a 2SAT problem written in conjunctive normal form.  If no assignment is possible returns `false`.
 
 * `numVariables` is the number of variables
-* `clauses` is a list of binary clauses
+* `clauses` is a list of binary clauses.  Variables are indexed in clauses starting at `1` and negative values indicate negation.
 
 **Returns** A vector of assignments to the variables of the clause.  If problem is not satisfiable, returns `false`
 

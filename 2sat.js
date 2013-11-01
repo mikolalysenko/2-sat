@@ -27,7 +27,7 @@ function compareInt(a,b) {
 
 function contains(cc, v) {
   var b = bounds.le(cc, v)
-  if(b < cc.length) {
+  if(b >= 0) {
     return cc[b] === v
   }
   return false
@@ -48,7 +48,6 @@ function solve2Sat(numVariables, clauses) {
     edges.push([na, b])
     adj[na].push(b)
     var nb = negate(b,numVariables)
-    console.log(c,a,b,na,nb)
     edges.push([nb, a])
     adj[nb].push(a)
   }

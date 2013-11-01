@@ -11,12 +11,12 @@ require("tape")(function(t) {
       for(var i=0; i<clauses.length; ++i) {
         var u = clauses[i][0]
         var v = clauses[i][1]
-        var a = solution[u]
-        var b = solution[v]
-        if(u >= solution.length) {
+        var a = solution[Math.abs(u)-1]
+        var b = solution[Math.abs(v)-1]
+        if(u < 0) {
           a = !a
         }
-        if(v >= solution.length) {
+        if(v < 0) {
           b = !b
         }
         t.ok(a || b)
@@ -24,9 +24,9 @@ require("tape")(function(t) {
     }
   }
 
-  //t.ok(!twoSat(1, [[1, 1], [-1,-1]]))
-  //checkTwoSat(1, [])
-  //checkTwoSat(2, [[1,2]])
+  t.ok(!twoSat(1, [[1, 1], [-1,-1]]))
+  checkTwoSat(1, [])
+  checkTwoSat(2, [[1,2]])
   checkTwoSat(7, [
       [1,2], [1,-4], [2,-4], [1,-5],
       [3,-5], [1,-6], [2,-6], [3,-6],

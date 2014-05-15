@@ -35,7 +35,6 @@ function contains(cc, v) {
 
 function solve2Sat(numVariables, clauses) {
   //Build implication graph
-  var edges = []
   var adj = new Array(2 * numVariables)
   for(var i=0; i<2*numVariables; ++i) {
     adj[i] = []
@@ -45,16 +44,14 @@ function solve2Sat(numVariables, clauses) {
     var a = clauseToVariable(c[0], numVariables)
     var b = clauseToVariable(c[1], numVariables)
     var na = negate(a,numVariables)
-    edges.push([na, b])
     adj[na].push(b)
     var nb = negate(b,numVariables)
-    edges.push([nb, a])
     adj[nb].push(a)
   }
 
   //Extract strongly connected components
-  var scc = stronglyConnectedComponents(2*numVariables, edges)
-
+  var scc = stronglyConnectedComponents(adj).components
+  
   //Mark cells and check satisfiability
   var solution = new Array(2 * numVariables)
   for(var i=0; i<solution.length; ++i) {

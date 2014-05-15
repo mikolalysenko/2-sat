@@ -1,21 +1,20 @@
 {
   "name": "2-sat",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "2SAT solver",
   "main": "2sat.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "binary-search-bounds": "~0.1.0",
-    "strongly-connected-components": "~0.0.0"
+    "binary-search-bounds": "^1.0.0",
+    "strongly-connected-components": "^1.0.1"
   },
   "devDependencies": {
-    "tape": "~2.1.0",
-    "tap": "~0.4.4"
+    "tape": "^2.1.0"
   },
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
